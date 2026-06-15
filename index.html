@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EMS - The E-Millenial Store</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+  </head>
+  <body>
+    <header class="top">
+      <div class="navbar">
+        <img src="./Images/EMS.svg" alt="EMS Logo" class="logo" />
+        <nav class="nav-links">
+          <a href="#">Intro</a>
+          <a href="#">About</a>
+          <a href="#">Shop</a>
+        </nav>
+        <button class="cart-btn" onclick="openCartModal()">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+            />
+          </svg>
+          <span id="cart-count">0</span>
+        </button>
+      </div>
+
+      <main class="hero-section">
+        <div class="header-content">
+          <h1 class="hero-title">
+            THE<br />
+            E-MILLENIAL<br />
+            STORE
+          </h1>
+          <div class="hero-image-wrapper">
+            <img
+              src="./Images/heroImage.png"
+              alt="EMS Gadgets"
+              class="header-logo"
+            />
+          </div>
+        </div>
+        <div class="button-container">
+          <button class="shop-now-btn">SHOP NOW</button>
+        </div>
+      </main>
+    </header>
+
+    <section class="about-section">
+      <p>
+        E-Millenial Store is an hypothetical online store for gadgets we believe
+        every 'Millenial' or 'Gen-Z' should have today. We've got mobile phones,
+        laptops, smartwatches and other gadgets. Explore all our gadgets and
+        choose the ones that suit you.
+      </p>
+    </section>
+
+    <section class="gadgets-section">
+      <h2 class="section-title">OUR GADGETS</h2>
+      <div class="product-grid">
+        <div class="product-card" data-id="1">
+          <div class="image-container">
+            <img src="./Images/product1.png" alt="Samsung TV" />
+            <div class="price-overlay">
+              <p>Price</p>
+              <h2>GH₵1,500</h2>
+            </div>
+          </div>
+          <h3>SAMSUNG TV</h3>
+          <button class="cart-toggle-btn" onclick="toggleCart(1)">
+            ADD TO CART
+          </button>
+        </div>
+
+        <div class="product-card" data-id="2">
+          <div class="image-container">
+            <img src="./Images/product2.png" alt="Pixel 4a" />
+            <div class="price-overlay">
+              <p>Price</p>
+              <h2>GH₵2,500</h2>
+            </div>
+          </div>
+          <h3>PIXEL 4a</h3>
+          <button class="cart-toggle-btn" onclick="toggleCart(2)">
+            ADD TO CART
+          </button>
+        </div>
+
+        <div class="product-card" data-id="3">
+          <div class="image-container">
+            <img src="./Images/product3.png" alt="PS 5" />
+            <div class="price-overlay">
+              <p>Price</p>
+              <h2>GH₵4,000</h2>
+            </div>
+          </div>
+          <h3>PS 5</h3>
+          <button class="cart-toggle-btn" onclick="toggleCart(3)">
+            ADD TO CART
+          </button>
+        </div>
+
+        <div class="product-card" data-id="4">
+          <div class="image-container">
+            <img src="./Images/product4.png" alt="Macbook Air" />
+            <div class="price-overlay">
+              <p>Price</p>
+              <h2>GH₵8,000</h2>
+            </div>
+          </div>
+          <h3>MACBOOK AIR</h3>
+          <button class="cart-toggle-btn" onclick="toggleCart(4)">
+            ADD TO CART
+          </button>
+        </div>
+
+        <div class="product-card" data-id="5">
+          <div class="image-container">
+            <img src="./Images/product5.png" alt="Apple Watch" />
+            <div class="price-overlay">
+              <p>Price</p>
+              <h2>GH₵950</h2>
+            </div>
+          </div>
+          <h3>APPLE WATCH</h3>
+          <button class="cart-toggle-btn" onclick="toggleCart(5)">
+            ADD TO CART
+          </button>
+        </div>
+
+        <div class="product-card" data-id="6">
+          <div class="image-container">
+            <img src="./Images/product6.png" alt="Air Pods" />
+            <div class="price-overlay">
+              <p>Price</p>
+              <h2>GH₵800</h2>
+            </div>
+          </div>
+          <h3>AIR PODS</h3>
+          <button class="cart-toggle-btn" onclick="toggleCart(6)">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <img src="./Images/EMS.svg" alt="EMS Logo" class="footer-logo" />
+      <p>Designed and Crafted by Nyame David</p>
+    </footer>
+
+    <div id="cart-modal-overlay" class="modal-overlay">
+      <div class="cart-modal">
+        <div class="cart-items-section">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>S/N</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cart-items-list"></tbody>
+          </table>
+          <p class="empty-cart-msg" id="empty-cart-msg">
+            Your cart is currently empty.
+          </p>
+        </div>
+
+        <div class="user-details-section">
+          <input type="text" id="user-name" placeholder="Your Name" required />
+          <input
+            type="email"
+            id="user-email"
+            placeholder="Your Email"
+            required
+          />
+          <input
+            type="tel"
+            id="user-phone"
+            placeholder="Your Phone Number"
+            required
+          />
+        </div>
+
+        <div class="total-section">
+          <p>Total Amount to be Paid</p>
+          <h3 id="cart-total-price">GH₵0</h3>
+        </div>
+
+        <div class="actions-section">
+          <button class="close-modal-btn" onclick="closeCartModal()">
+            Continue Shopping
+          </button>
+          <button class="checkout-btn" onclick="payWithPaystack()">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="success-modal-overlay" class="modal-overlay">
+      <div class="success-modal">
+        <h2 id="success-message">
+          Thank You, Name, Your Order Has been Received
+        </h2>
+
+        <svg
+          class="check-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+
+        <h3>Summary</h3>
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Item</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody id="summary-items-list"></tbody>
+        </table>
+
+        <button class="ok-btn" onclick="closeSuccessModal()">Ok</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
